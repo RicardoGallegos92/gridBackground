@@ -1,0 +1,92 @@
+:root{
+    font-size: 10px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+@keyframes background-pan{
+    from{
+        background-position: 100% center;
+    }
+    to{
+        background-position: -100% center;
+    }
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+#grillado{
+    height: 100%;
+    width: 100%;
+
+    animation: background-pan 2000ms linear infinite;
+    /* colores para la gradiente de texto */
+    background: linear-gradient(
+        to right,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        violet
+    );
+    
+    background-size: 200%;
+    display: grid;
+    grid-template-columns: repeat(var(--columnas), 1fr);
+    grid-template-rows: repeat(var(--filas), 1fr);
+    justify-content: center;
+}
+
+.casilla{
+    cursor: cell!important;
+    background-color: white;
+
+    border-color: greenyellow;
+    border-width: 2px;
+    border-style: ridge;
+    
+
+}
+
+.casilla:hover{
+    background-color : transparent;
+    border-color: rgba(255, 255, 255, 0.0);
+}
+
+#main{
+    position: absolute;
+    top: 0;
+    width: auto;
+    height: fit-content;
+
+    background-color: transparent;
+    z-index: 1;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    border-style: dashed;
+    border-width: 0.5px;
+}
+
+#main *{
+    background-color: rgb(255, 255, 255,0.3);
+}
+
+#titulo{
+    font-size: 3rem;
+    text-align: center;
+}
