@@ -1,25 +1,29 @@
+window.requestAnimationFrame(function(){
 $(document).ready(function(){
     const DIMENSION_CASILLA = 40;
-    const DELAY_ANIMACION = 125;
+    const DELAY_ANIMACION = 1500;
     const CASILLA = '<div class="casilla"></div>';
 
     function entranding(){
 //        $(this).css('background-color',"#e0353542");
         $(this).animate({
-            "border-width" : '6'
+            "border-width" : DIMENSION_CASILLA/2 ,
             }, DELAY_ANIMACION
         );
     }
 
     function saliending(){
         $(this).stop(false, true);
+        $(this).removeAttr('style');
+
         $(this).animate({
-                "border-width" : '2'
+                "border-width" : '0'
             }, DELAY_ANIMACION
             ,   function(){
                     $(this).removeAttr('style');
                 }
         );
+
     }
 
     function ponerAnimacion() {
@@ -34,10 +38,11 @@ $(document).ready(function(){
     function asignarVariables(filas, columnas){
         $(":root").css('--filas', filas);
         $(":root").css('--columnas', columnas);
-
+/*
         console.log("Height :"+filas);
         console.log("Width :"+columnas);
         console.log("Casillas :"+columnas*filas);
+*/
     }
 
     function crearGrilla(filas, columnas){
@@ -69,5 +74,7 @@ $(document).ready(function(){
 
 
     prepararTodo();
+
+});
 
 });

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    const DIMENSION_CASILLA = 50;
+    const DIMENSION_CASILLA = 300;
     const wrapper = document.getElementById("grillado");
     let filas =
     Math.round(parseInt($('body').css('height')) / DIMENSION_CASILLA);
@@ -34,8 +34,11 @@ $(document).ready(function(){
         const tile = document.createElement("div");
         tile.classList.add("casilla");
 
-        tile.onmouseenter = e => entranding(index);
-        tile.onmouseleave = e => desPintarCasilla(index);
+        // tile.onmouseenter = e => entranding(index);
+        // tile.onmouseleave = e => desPintarCasilla(index);
+
+        tile.addEventListener("mouseenter",entranding(index));
+        tile.addEventListener("mouseleave",desPintarCasilla(index));
 
         return tile;
     }
